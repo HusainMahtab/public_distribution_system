@@ -2,13 +2,19 @@ import { NextResponse } from 'next/server';
 import connectDB from '@/lib/db';
 import Distribution from '@/models/Distribution';
 
+interface RouteParams {
+  params: {
+    id: string;
+  }
+}
+
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: RouteParams
 ) {
   try {
     await connectDB();
-    const { id } =params;
+    const { id } = params;
     const data = await request.json();
     
     const updatedDistribution = await Distribution.findByIdAndUpdate(
@@ -36,7 +42,7 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string} }
+  { params }: RouteParams
 ) {
   try {
     await connectDB();

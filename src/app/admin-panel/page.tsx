@@ -164,7 +164,7 @@ export default function AdminPanel() {
      setLoading(false);
       toast.success("Distribution deleted successfully");
     } catch (error) {
-      console.log("error while deleting distribution",error)
+      console.log(error)
       toast.error("Failed to delete distribution");
       setLoading(false);
     }
