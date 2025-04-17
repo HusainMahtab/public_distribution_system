@@ -2,16 +2,10 @@ import { NextResponse } from 'next/server';
 import connectDB from '@/lib/db';
 import Distribution from '@/models/Distribution';
 
-interface Params {
-  params: {
-    id: string;
-  };
-}
-
 export async function PUT(
   request: Request,
-  { params }: Params
-) {
+  { params }: { params: { id: string } }
+): Promise<NextResponse> {
   try {
     await connectDB();
     const { id } = params;
@@ -42,8 +36,8 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  { params }: Params
-) {
+  { params }: { params: { id: string } }
+): Promise<NextResponse> {
   try {
     await connectDB();
     const { id } = params;
