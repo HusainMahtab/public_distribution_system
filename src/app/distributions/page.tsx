@@ -13,7 +13,7 @@ interface Distribution {
   unit: number;
 }
 
-function distributions() {
+function Distributions() {
     const [distributions, setDistributions] = useState<Distribution[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -51,4 +51,4 @@ function distributions() {
   )
 }
 
-export default distributions
+export default Distributions

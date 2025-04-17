@@ -12,6 +12,7 @@ export async function GET() {
     const users = await User.find({}).select('-password');
     return NextResponse.json(users);
   } catch (error) {
+    console.error(error);
     return NextResponse.json(
       { error: 'Failed to fetch users' },
       { status: 500 }
@@ -47,6 +48,7 @@ export async function POST(request:Request) {
     await user.save();
     return NextResponse.json({success:true, message:"user created successfuly"}, { status: 201 });
   } catch (error) {
+    console.error(error);
     return NextResponse.json(
       { error: 'Failed to create user' },
       { status: 500 }

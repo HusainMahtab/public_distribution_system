@@ -26,6 +26,7 @@ export async function PUT(
 
     return NextResponse.json(updatedDistribution);
   } catch (error) {
+    console.error('Error updating distribution:', error);
     return NextResponse.json(
       { error: 'Failed to update distribution' },
       { status: 500 }
@@ -52,6 +53,7 @@ export async function DELETE(
 
     return NextResponse.json({ message: 'Distribution deleted successfully' });
   } catch (error) {
+    console.error('Error deleting distribution:', error);
     return NextResponse.json(
       { error: 'Failed to delete distribution' },
       { status: 500 }

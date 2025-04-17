@@ -84,6 +84,7 @@ export default function AdminPanel() {
       setLoading(false);
     } catch (error) {
       toast.error("Failed to fetch distributions");
+      console.log("error while fetching distributions",error)
       setLoading(false);
     }
   };
@@ -117,6 +118,7 @@ export default function AdminPanel() {
       setOpen(false);
     } catch (error) {
       setLoading(false);
+      console.log("error while adding distribution",error)
       toast.error("Failed to add distribution");
     }
   };
@@ -146,6 +148,7 @@ export default function AdminPanel() {
       setUpdateOpen(false);
     } catch (error) {
       setLoading(false);
+      console.log("error while updating distribution",error)
       toast.error("Failed to update distribution");
     }
   };
@@ -161,6 +164,7 @@ export default function AdminPanel() {
      setLoading(false);
       toast.success("Distribution deleted successfully");
     } catch (error) {
+      console.log("error while deleting distribution",error)
       toast.error("Failed to delete distribution");
       setLoading(false);
     }

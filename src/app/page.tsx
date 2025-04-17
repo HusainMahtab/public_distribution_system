@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { FaGithub, FaLinkedin, FaInstagram, FaNodeJs } from "react-icons/fa6";
@@ -186,7 +185,7 @@ function Home() {
                   Welcome to My Profile
                 </p>
                 <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-                  Hello, I'm a{" "}
+                  Hello, I am a{" "}
                   <TypeAnimation
                     sequence={[
                       "Programmer",
@@ -361,5 +360,3 @@ export default Home;
   priority
 />
 
-// Fix apostrophe in text
-{"It's"} // or use &apos; if you prefer

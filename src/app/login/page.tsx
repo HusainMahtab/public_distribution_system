@@ -102,7 +102,7 @@ export default function LoginForm() {
         }
       </form>
       <div className="w-full flex mt-6 justify-center gap-4">
-        <p>Don't have account ? </p>
+        <p>Not have account ? </p>
         <Link href={"/signup"} className="font-semibold hover:underline font-serif">Signup</Link>
       </div>
      </Form>

@@ -17,6 +17,7 @@ function Nav() {
           await signOut({ redirect: false, callbackUrl: "/login" });
           router.replace("/")
         } catch (error) {
+          console.error("Logout failed:", error);
           toast.error("Failed to logout");
         }
     };
