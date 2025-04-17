@@ -4,11 +4,11 @@ import Distribution from '@/models/Distribution';
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: any } }
+  { params }: { params: { id: string } }
 ) {
   try {
     await connectDB();
-    const { id } = params;
+    const { id } =params;
     const data = await request.json();
     
     const updatedDistribution = await Distribution.findByIdAndUpdate(
@@ -36,7 +36,7 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: any } }
+  { params }: { params: { id: string} }
 ) {
   try {
     await connectDB();
