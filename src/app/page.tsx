@@ -9,6 +9,9 @@ import { TbBrandNextjs } from "react-icons/tb";
 import { IoLogoReact } from "react-icons/io5";
 import { SiMongodb } from "react-icons/si";
 import Link from "next/link";
+// Remove unused Button import if not used
+// Replace <img> with next/image
+import Image from 'next/image';
 
 
 function Home() {
@@ -348,3 +351,15 @@ function Home() {
 }
 
 export default Home;
+
+// Replace img tags with Image component
+<Image 
+  src="/your-image-path.jpg"
+  alt="Description"
+  width={500}
+  height={300}
+  priority
+/>
+
+// Fix apostrophe in text
+{"It's"} // or use &apos; if you prefer
