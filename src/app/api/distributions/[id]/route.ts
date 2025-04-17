@@ -2,15 +2,16 @@ import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/db';
 import Distribution from '@/models/Distribution';
 
-// Define the params interface correctly
-interface Context {
-  params: { id: string };
-}
+// Use Next.js built-in type for dynamic route parameters
+import type { Params } from 'next/dist/server/router';
 
-export async function PUT(request: NextRequest, context: Context) {
+export async function PUT(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
   try {
     await connectDB();
-    const { id } = context.params; // Access id from context.params
+    const { id } = params; // Access id from params
     const data = await request.json();
 
     const updatedDistribution = await Distribution.findByIdAndUpdate(id, data, {
@@ -34,10 +35,13 @@ export async function PUT(request: NextRequest, context: Context) {
   }
 }
 
-export async function DELETE(request: NextRequest, context: Context) {
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
   try {
     await connectDB();
-    const { id } = context.params; // Access id from context.params
+    const { id } = params; // Access id from params
 
     const deletedDistribution = await Distribution.findByIdAndDelete(id);
 
