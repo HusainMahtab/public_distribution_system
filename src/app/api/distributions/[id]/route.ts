@@ -1,14 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/db';
 import Distribution from '@/models/Distribution';
-import { type NextApiRequest } from 'next';
 
 interface Params {
   id: string;
 }
 
 export async function PUT(
-  request: NextApiRequest & Request,
+  request: NextRequest,
   { params }: { params: Params }
 ) {
   try {
@@ -40,7 +39,7 @@ export async function PUT(
 }
 
 export async function DELETE(
-  request: NextApiRequest & Request,
+  request: NextRequest,
   { params }: { params: Params }
 ) {
   try {
