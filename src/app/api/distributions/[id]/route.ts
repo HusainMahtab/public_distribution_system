@@ -1,15 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/db';
 import Distribution from '@/models/Distribution';
+import { type NextApiRequest } from 'next';
+
+interface Params {
+  id: string;
+}
 
 export async function PUT(
-  req: NextRequest,
-  { params }: { params: { id: string } }
+  request: NextApiRequest & Request,
+  { params }: { params: Params }
 ) {
   try {
     await connectDB();
     const { id } = params;
-    const data = await req.json();
+    const data = await request.json();
     
     const updatedDistribution = await Distribution.findByIdAndUpdate(
       id,
@@ -35,8 +40,8 @@ export async function PUT(
 }
 
 export async function DELETE(
-  req: NextRequest,
-  { params }: { params: { id: string } }
+  request: NextApiRequest & Request,
+  { params }: { params: Params }
 ) {
   try {
     await connectDB();
