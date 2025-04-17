@@ -2,15 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/db';
 import Distribution from '@/models/Distribution';
 
-// Define the params interface correctly
-interface Context {
-  params: { id: string };
-}
-
-export async function PUT(request: NextRequest, context: Context) {
+export async function PUT(request: NextRequest) {
   try {
     await connectDB();
-    const { id } = context.params; // Access id from context.params
+    const id = request.url.split('/').pop();
     const data = await request.json();
 
     const updatedDistribution = await Distribution.findByIdAndUpdate(id, data, {
@@ -34,10 +29,10 @@ export async function PUT(request: NextRequest, context: Context) {
   }
 }
 
-export async function DELETE(request: NextRequest, context: Context) {
+export async function DELETE(request: NextRequest) {
   try {
     await connectDB();
-    const { id } = context.params; // Access id from context.params
+    const id = request.url.split('/').pop();
 
     const deletedDistribution = await Distribution.findByIdAndDelete(id);
 
