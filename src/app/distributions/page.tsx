@@ -45,7 +45,7 @@ function Distributions() {
     }
   
   return (
-    <main className="container mx-auto py-8">
+    <main className="container mx-auto py-1">
       <DistributionCards initialData={distributions} />
     </main>
   )

@@ -45,11 +45,11 @@ export default function LoginForm() {
       toast.success("Login Successful" );
   
       // Wait for session update before redirecting
-      // setTimeout(() => {
-      //   router.replace('/dashboard');
-      // }, 500);
+      setTimeout(() => {
+        router.replace("/distributions")
+      }, 500);
       setIsLogin(false)
-      router.replace("/distributions")
+     
     } else {
       
       toast.error("Login Failed",{
