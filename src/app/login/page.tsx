@@ -49,7 +49,7 @@ export default function LoginForm() {
       //   router.replace('/dashboard');
       // }, 500);
       setIsLogin(false)
-      router.push("/distributions")
+      router.replace("/distributions")
     } else {
       
       toast.error("Login Failed",{
